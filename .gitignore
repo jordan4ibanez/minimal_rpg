@@ -1,0 +1,15 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/blah
+minimal_rpg.so
+minimal_rpg.dylib
+minimal_rpg.dll
+minimal_rpg.a
+minimal_rpg.lib
+minimal_rpg-test-*
+*.exe
+*.o
+*.obj
+*.lst
