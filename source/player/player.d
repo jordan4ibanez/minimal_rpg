@@ -32,24 +32,30 @@ public class Player {
         return position.getY();
     }
 
-    public void doControls() {
+    public bool doControls() {
+        bool movement = false;
         if (IsKeyPressed(KeyboardKey.KEY_LEFT)) {
             if ( this.getX() > 0 ) {
                 this.moveX( -1 );
             }
+            movement = true;
         } else if ( IsKeyPressed(KeyboardKey.KEY_RIGHT) ) {
             if ( this.getX() < 9 ) {
                 this.moveX( 1 );
             }
+            movement = true;
         } else if ( IsKeyPressed(KeyboardKey.KEY_UP) ) {
             if ( this.getY() > 0 ) {
                 this.moveY( -1 );
             }
+            movement = true;
         } else if ( IsKeyPressed(KeyboardKey.KEY_DOWN) ) {
             if ( this.getY() < 9 ) { 
                 this.moveY( 1 );
             }
+            movement = true;
         }
+        return movement;
     }
 
     public void draw() {
