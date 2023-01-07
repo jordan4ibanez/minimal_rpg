@@ -6,6 +6,7 @@ import std.array;
 import std.conv;
 import std.string;
 import player.player;
+import mob.mob;
 
 public class Map {
 
@@ -24,7 +25,7 @@ public class Map {
         
     ];
 
-    public void draw( Player player ) {
+    public void draw( Player player, MobHandler mobHandler ) {
 
         int x = 0;
         int y = 0;
@@ -37,12 +38,31 @@ public class Map {
         int playerX = player.getX();
         int playerY = player.getY();
 
-        writeln("player x is : ", playerX);
+        MobClass[] mobIterator = mobHandler.getIterator();
 
         foreach (int[] key; data) {
             foreach (int character; key) {
+
+                bool failure = false;
+
+                // Don't draw behind mobs
+                foreach (MobClass mob; mobIterator) {
+
+                    int mobX = mob.getX();
+                    int mobY = mob.getY();
+
+                    if ( mobX == litX && mobY == litY ){
+                        failure = true;
+                    }
+
+                }
                 
-                if ( playerX != litX || playerY != litY ){
+                // Don't draw behind players
+                if ( playerX == litX && playerY == litY ){
+                    failure = true;
+                }
+
+                if (!failure) {
                     DrawText(to!string(character).toStringz, x, y, fontSize, Colors.WHITE);
                 }
 
