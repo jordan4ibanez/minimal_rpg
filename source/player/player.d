@@ -67,7 +67,6 @@ public class Player {
     }
 
     public void debugPrint() {
-        int[] posAsArray = position.getAsArray();
-        writeln(this.name, " is currently at: ", posAsArray[0], ",", posAsArray[1]);
+        int[] posAsArray = position.getAsArray();        
     }
 }
