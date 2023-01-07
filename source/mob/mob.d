@@ -3,6 +3,7 @@ module mob.mob;
 import std.stdio;
 import mob.goblin;
 import position.vec2;
+import std.string;
 import raylib;
 
 public interface MobInterface {
@@ -14,12 +15,25 @@ public interface MobInterface {
 
 public abstract class MobClass : MobInterface {
     private int health = 100;
-    Vec2 position;
-    Color color;
+    private Vec2 position;
+    private Color color;
+    private string shape;
 
-    this( int x, int y ) {
+    this( int x, int y, Color color, string shape ) {
         this.position = new Vec2( x, y );
+
+        this.color = color;
+        this.shape = shape;
     }
+
+    abstract
+    public void onTick();
+    abstract
+    public void onHurt();
+    abstract
+    public void onMove();
+    abstract
+    public void onSpawn();
 
     public void hurt( int amount ) {
         this.health -= amount;
@@ -36,6 +50,14 @@ public abstract class MobClass : MobInterface {
     public int getY() {
         return this.position.getY();
     }
+
+    public Color getColor() {
+        return this.color;
+    }
+
+    public string getShape() {
+        return this.shape;
+    }
 }
 
 public class MobHandler {
@@ -50,5 +72,17 @@ public class MobHandler {
 
     public MobClass[] getIterator() {
         return this.mobs;
+    }
+
+    public void drawMobs() {
+        foreach (MobClass mob; mobs) {
+            int mobX = mob.getX();
+            int mobY = mob.getY();
+
+            int fontSize = 60;
+
+            DrawText(mob.getShape().toStringz, mobX * fontSize, mobY * fontSize, fontSize, mob.getColor());
+            
+        }
     }
 }
