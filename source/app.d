@@ -10,7 +10,7 @@ void main() {
 
     validateRaylibBinding();
     InitWindow( 800, 600, "minimal_rpg" );
-    SetTargetFPS(30);
+    SetTargetFPS(60);
 
     Player player = new Player( "debug player", 0, 0 );
 
