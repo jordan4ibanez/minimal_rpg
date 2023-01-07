@@ -36,11 +36,13 @@ void main() {
 
             Random random = Random(unpredictableSeed());
 
+            /*
             mobHandler.spawnMob(
                 possibleMobs[uniform(0,2,random)],
                 uniform(0,10, random),
                 uniform(0,10, random)
             );
+            */
         }
 
 
