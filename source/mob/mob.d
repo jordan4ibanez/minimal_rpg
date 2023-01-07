@@ -85,4 +85,10 @@ public class MobHandler {
             
         }
     }
+
+    public void mobsOnTick() {
+        foreach (MobClass mob; mobs) {
+            mob.onTick();            
+        }
+    }
 }
