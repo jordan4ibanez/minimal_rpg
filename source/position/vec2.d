@@ -35,6 +35,10 @@ public class Vec2 {
         this.y += y;
     }
 
+    public int[] getAsArray() {
+        return [this.x, this.y];
+    }
+
     public void debugPrint() {
         writeln("X: ", x, " | Y: ", y);
     }
