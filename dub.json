@@ -8,5 +8,11 @@
 	},
 	"description": "A minimal D application.",
 	"license": "proprietary",
-	"name": "minimal_rpg"
+	"name": "minimal_rpg",
+
+    "dependencies": { "raylib-d": "~>4.2.4" },
+    "libs": [ "raylib" ],
+    "lflags-posix" : ["-L."],
+    "lflags-osx" : ["-rpath", "@executable_path/"],
+    "lflags-linux" : ["-rpath=$$ORIGIN"]
 }
