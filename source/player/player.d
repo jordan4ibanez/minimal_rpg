@@ -70,5 +70,9 @@ public class Player {
 
     public void heal( int amount ) {
         this.health += amount;
-    }    
+    }
+
+    public int getHealth() {
+        return health;
+    }
 }
