@@ -64,9 +64,5 @@ public class Player {
 
     public void heal( int amount ) {
         this.health += amount;
-    }
-
-    public void debugPrint() {
-        int[] posAsArray = position.getAsArray();        
-    }
+    }    
 }
