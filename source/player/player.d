@@ -9,6 +9,7 @@ public class Player {
     
     private string name;
     private Vec2 position;
+    private byte health = 100;
 
     this( string name, int x, int y ) {
         this.name = name;
@@ -55,6 +56,14 @@ public class Player {
         int fontSize = 60;
 
         DrawText("X", this.getX() * fontSize, this.getY() * fontSize, fontSize, Colors.RED);
+    }
+
+    public void damage( int amount ) {
+        this.health -= amount;
+    }
+
+    public void heal( int amount ) {
+        this.health += amount;
     }
 
     public void debugPrint() {
