@@ -3,6 +3,7 @@ import raylib;
 import std.stdio;
 import player.player;
 import map.map;
+import mob.mob;
 
 void main() {
 
@@ -14,9 +15,11 @@ void main() {
 
     Player player = new Player( "debug player", 0, 0 );
 
-    player.debugPrint();
-
     Map map = new Map();
+
+    MobHandler mobHandler = new MobHandler();
+
+    mobHandler.spawnMob("goblin", 1,1);
 
 
     while ( !WindowShouldClose() ) {
@@ -28,8 +31,15 @@ void main() {
         BeginDrawing();
         ClearBackground( Colors.BLACK );
 
+        foreach (MobClass key; mobHandler.getIterator()) {
+            key.onHurt();
+        }
 
-        map.draw( player );
+
+        map.draw( player, mobHandler );
+
+        mobHandler.drawMobs();
+        
         player.draw();
 
         EndDrawing();
