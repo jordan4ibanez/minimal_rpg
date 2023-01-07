@@ -26,7 +26,7 @@ public class Goblin : MobClass {
 
     override
     public void onTick() {
-
+        randomMovement(50.0);
     }
 
 }

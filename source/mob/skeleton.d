@@ -26,6 +26,7 @@ public class Skeleton : MobClass {
 
     override
     public void onTick() {
+        randomMovement(100.0);
 
     }
 
