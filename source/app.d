@@ -29,7 +29,7 @@ void main() {
         bool movement = player.doControls();
 
         if ( movement ) {
-
+            mobHandler.mobsOnTick();
         }
 
 
