@@ -2,8 +2,11 @@
 import raylib;
 import std.stdio;
 import player.player;
+import map.map;
 
 void main() {
+
+    // Everything in this game is rigid and basic
 
     validateRaylibBinding();
     InitWindow( 800, 600, "minimal_rpg" );
@@ -13,8 +16,23 @@ void main() {
 
     player.debugPrint();
 
+    Map map = new Map();
+
+
     while ( !WindowShouldClose() ) {
-        writeln("hi");
+
+
+        player.doControls();
+
+
+        BeginDrawing();
+        ClearBackground( Colors.BLACK );
+
+
+        map.draw( player );
+        player.draw();
+
+        EndDrawing();
     }
 
     CloseWindow();
