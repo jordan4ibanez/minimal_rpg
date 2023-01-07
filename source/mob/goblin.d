@@ -1,8 +1,16 @@
 module mob.goblin;
 
+import raylib;
+import std.stdio;
 import mob.mob;
 
-public class Goblin : MobInterface {
+public class Goblin : MobClass {
+
+    Color color = Colors.GREEN;
+
+    this( int x, int y ) {
+        super( x, y );
+    }
     
     public void onHurt() {
 
@@ -17,6 +25,6 @@ public class Goblin : MobInterface {
     }
 
     public void onTick() {
-        
+
     }
 }
