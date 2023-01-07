@@ -20,6 +20,7 @@ void main() {
     MobHandler mobHandler = new MobHandler();
 
     mobHandler.spawnMob("goblin", 1,1);
+    mobHandler.spawnMob("skeleton", 2,3);
 
 
     while ( !WindowShouldClose() ) {

@@ -1,7 +1,10 @@
 module mob.mob;
 
 import std.stdio;
+
 import mob.goblin;
+import mob.skeleton;
+
 import position.vec2;
 import std.string;
 import raylib;
@@ -65,8 +68,10 @@ public class MobHandler {
     private MobClass[] mobs;
 
     public void spawnMob( string type, int x, int y ) {
-        if (type == "goblin") {
+        if ( type == "goblin" ) {
             mobs ~= new Goblin( x, y );
+        } else if ( type == "skeleton" ) {
+            mobs ~= new Skeleton( x, y );
         }
     }
 
@@ -75,7 +80,7 @@ public class MobHandler {
     }
 
     public void drawMobs() {
-        foreach (MobClass mob; mobs) {
+        foreach ( MobClass mob; mobs ) {
             int mobX = mob.getX();
             int mobY = mob.getY();
 
