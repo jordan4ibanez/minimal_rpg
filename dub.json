@@ -3,6 +3,9 @@
 		"Jordan"
 	],
 	"copyright": "Copyright © 2022, Jordan",
+	"dependencies": {
+		"raylib-d": "~>4.2.4"
+	},
 	"description": "A minimal D application.",
 	"license": "proprietary",
 	"name": "minimal_rpg"

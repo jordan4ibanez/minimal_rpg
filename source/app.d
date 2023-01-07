@@ -1,5 +1,5 @@
-import std.stdio;
 
+import std.stdio;
 import player.player;
 
 void main() {
@@ -7,5 +7,6 @@ void main() {
     Player player = new Player( "debug player", 0, 0 );
 
     player.debugPrint();
+
 }
 
