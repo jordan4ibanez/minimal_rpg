@@ -5,6 +5,8 @@ import player.player;
 import map.map;
 import mob.mob;
 import std.random;
+import std.string;
+import std.conv;
 
 void main() {
 
@@ -59,6 +61,8 @@ void main() {
         mobHandler.drawMobs();
         
         player.draw();
+
+        DrawText(("HEALTH: " ~ to!string(player.getHealth())).toStringz, 600,30, 28, Colors.WHITE );
 
         EndDrawing();
     }
