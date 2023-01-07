@@ -4,6 +4,7 @@ import std.stdio;
 import player.player;
 import map.map;
 import mob.mob;
+import std.random;
 
 void main() {
 
@@ -22,6 +23,8 @@ void main() {
     mobHandler.spawnMob("goblin", 1,1);
     mobHandler.spawnMob("skeleton", 2,3);
 
+    string[] possibleMobs = ["goblin", "skeleton"];
+
 
     while ( !WindowShouldClose() ) {
 
@@ -30,6 +33,14 @@ void main() {
 
         if ( movement ) {
             mobHandler.mobsOnTick();
+
+            Random random = Random(unpredictableSeed());
+
+            mobHandler.spawnMob(
+                possibleMobs[uniform(0,2,random)],
+                uniform(0,10, random),
+                uniform(0,10, random)
+            );
         }
 
 
