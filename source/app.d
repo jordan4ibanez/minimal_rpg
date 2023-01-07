@@ -25,13 +25,17 @@ void main() {
     while ( !WindowShouldClose() ) {
 
 
-        player.doControls();
+        bool movement = player.doControls();
+
+        if ( movement ) {
+
+        }
 
 
         BeginDrawing();
         ClearBackground( Colors.BLACK );
 
-        foreach (MobClass key; mobHandler.getIterator()) {
+        foreach ( MobClass key; mobHandler.getIterator() ) {
             key.onHurt();
         }
 
