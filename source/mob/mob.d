@@ -8,6 +8,7 @@ import mob.skeleton;
 import position.vec2;
 import std.string;
 import raylib;
+import std.random;
 
 public interface MobInterface {
     public void onTick();
@@ -60,6 +61,47 @@ public abstract class MobClass : MobInterface {
 
     public string getShape() {
         return this.shape;
+    }
+
+    protected void randomMovement(float chance) {
+        Random random = Random( unpredictableSeed() );
+        
+        if ( uniform(0.0, 100.0, random) > chance ) {
+            return;
+        }
+
+        // Unlink the previous randomness
+        random = Random( unpredictableSeed() );
+
+        int dir = uniform(0,4, random);
+
+        final switch (dir) {
+            case 0: {
+                if ( position.getX() > 0 ) {
+                    position.addX( -1 );
+                }
+                break;
+            }
+            case 1: {
+                if ( position.getX() < 9 ) {
+                    position.addX( 1 );
+                }
+                break;
+            }
+            case 2: {
+                if ( position.getY() > 0 ) {
+                    position.addY( -1 );
+                }
+                break;
+            }
+            case 3: {
+                if ( position.getY() < 9 ) {
+                    position.addY( 1 );
+                }
+            }
+
+        }
+
     }
 }
 
