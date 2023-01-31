@@ -61,7 +61,7 @@ public class Player {
     public void draw() {
         int fontSize = 60;
 
-        DrawText("X", this.getX() * fontSize, this.getY() * fontSize, fontSize, Colors.RED);
+        DrawText("@", this.getX() * fontSize, this.getY() * fontSize, fontSize, Colors.RED);
     }
 
     public void damage( int amount ) {
